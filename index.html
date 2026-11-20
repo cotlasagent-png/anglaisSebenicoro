@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Describing your week</title>
+<style>
+:root{--bg:#f6faf1;--card:#fff;--tx:#1f2a1a;--mu:#5b6b52;--g:#6aa63a;--gd:#3f7a1f;--ok:#2e8b3d;--no:#d6452d;--bl:#1d7fc1;--ln:#cfe3bd;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a11;--card:#1d2619;--tx:#eaf2e2;--mu:#a3b498;--g:#86c452;--gd:#a6dd78;--ln:#33452b;--bl:#5ab4f0}}
+:root[data-theme="dark"]{--bg:#141a11;--card:#1d2619;--tx:#eaf2e2;--mu:#a3b498;--g:#86c452;--gd:#a6dd78;--ln:#33452b;--bl:#5ab4f0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:2rem;margin:.2em 0}h1 span{background:var(--g);color:#fff;padding:0 .4em;border-radius:6px;margin-right:.3em}
+h2{font-size:1.15rem;margin:0 0 8px;color:var(--gd)}
+.card{background:var(--card);border:2px solid var(--ln);border-radius:16px;padding:16px;margin:16px 0}
+.mu{color:var(--mu);font-size:.92rem}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:8px}
+.day,.fq{border:2px solid var(--ln);background:var(--bg);color:var(--tx);border-radius:12px;padding:10px 6px;font:inherit;cursor:pointer;text-align:center}
+.day b{display:block;font-size:1.3rem;color:#8a5fb5}.day.we b{color:#c0392b}
+.day small,.fq small{display:block;color:var(--mu)}
+.fq b{color:var(--bl)}
+.ex{background:var(--bg);border-radius:10px;padding:10px 12px;margin:8px 0;font-size:1.05rem}
+.big{font-size:1.3rem;font-weight:600;margin:.4em 0}.big em{color:#d6452d;font-style:normal}.big u{color:var(--bl);text-decoration:none}
+select{font:inherit;padding:2px 4px;border-radius:8px;border:2px solid var(--g);background:var(--card);color:var(--tx);max-width:100%}
+.it.ok{border-left:6px solid var(--ok)}.it.no{border-left:6px solid var(--no)}
+.fb{display:block;font-size:.9rem;color:var(--no)}
+button.b{background:var(--g);color:#fff;border:0;border-radius:10px;padding:8px 16px;font:inherit;font-weight:600;cursor:pointer;margin:6px 6px 0 0}
+button.b.s{background:transparent;color:var(--gd);border:2px solid var(--g)}
+button.sp{border:0;background:none;cursor:pointer;font-size:1.1rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{border:2px solid var(--bl);background:var(--card);color:var(--tx);border-radius:8px;padding:4px 10px;font:inherit;cursor:pointer}
+.chip.used{opacity:.3}.ans{min-height:2.2em;border-bottom:2px dashed var(--g);padding:4px}
+.tf button{margin-left:6px}
+#score{position:sticky;top:env(safe-area-inset-top,0px);background:var(--g);color:#fff;border-radius:0 0 12px 12px;padding:6px 14px;font-weight:600;z-index:5;text-align:center}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--ln);padding:4px 8px;text-align:left}
+.tip{background:#e9f3dc;color:#2a3d1c;border-radius:12px;padding:8px 12px;margin-top:8px;font-size:.92rem}
+textarea{width:100%;font:inherit;padding:10px;border:2px solid var(--g);border-radius:12px;background:var(--bg);color:var(--tx);resize:vertical}
+#ck{list-style:none;padding:0;margin:10px 0}#ck li{padding:3px 0;color:var(--mu)}#ck li.y{color:var(--ok);font-weight:600}
+</style></head><body>
+<div id="score">Score: 0 / 0</div>
+<main>
+<h1><span>14</span> Describing your week</h1>
+<p>You can talk about your usual weekly activities with the <b>present simple</b> and <b>time phrases</b>. Tap 🔊 or a card to hear English.</p>
+
+<section class="card"><h2>14.1 Days of the week</h2>
+<p class="mu">Tap a day to hear it and see the French.</p>
+<div class="days" id="days"></div>
+<p class="mu" style="margin-bottom:0">Saturday + Sunday = <b>the weekend</b> (le week-end).</p></section>
+
+<section class="card"><h2>14.2 Prepositions and days</h2>
+<div class="big">I go to work <em>on</em> Monday<u>s</u>. <button class="sp" onclick="say('I go to work on Mondays')">🔊</button></div>
+<p class="mu">Use <b>on</b> before the day. Add <b>-s</b> for “every Monday”.</p>
+<div class="big">I work <em>from</em> Monday <em>to</em> Friday. <button class="sp" onclick="say('I work from Monday to Friday')">🔊</button></div>
+<p class="mu"><b>from</b> = start day · <b>to</b> = finish day</p>
+<div class="big">I watch TV <em>on / at</em> the weekend. <button class="sp" onclick="say('I watch TV on the weekend')">🔊</button></div>
+<div class="tip">“On the weekend” is more common in the US. “At the weekend” is more common in the UK. In US English: “I work Mondays.”</div></section>
+
+<section class="card" id="e143"><h2>14.3 Fill in the gaps</h2><div class="mu">Choose the right word.</div></section>
+
+<section class="card"><h2>14.4 Vocabulary: activities</h2>
+<div class="days" id="acts"></div></section>
+
+<section class="card" id="e145"><h2>14.5 Complete the sentences</h2><div class="mu">Pick the activity that matches the picture.</div></section>
+
+<section class="card" id="e146"><h2>14.6 Say it out loud, filling in the gaps</h2><div class="mu">Fill in, check, then tap 🔊 to hear the full sentence.</div></section>
+
+<section class="card"><h2>14.7 Frequency phrases</h2>
+<p class="mu">Use them to say <b>how often</b> something happens.</p>
+<div class="days" id="fqs"></div>
+<h2 style="margin-top:16px">14.8 How to form</h2>
+<div class="big">I go to the gym <u>twice a week.</u></div>
+<p class="mu">The frequency phrase usually goes at the <b>end</b> of the sentence.</p>
+<h2>14.9 More examples</h2>
+<div class="ex">He goes to work <b style="color:var(--bl)">three times a week</b>. <button class="sp" onclick="say('He goes to work three times a week')">🔊</button></div>
+<div class="ex">She goes swimming <b style="color:var(--bl)">four times a week</b>. <button class="sp" onclick="say('She goes swimming four times a week')">🔊</button></div>
+<div class="ex">We eat dinner at 7:30pm <b style="color:var(--bl)">every day</b>. <button class="sp" onclick="say('We eat dinner at seven thirty pm every day')">🔊</button></div>
+<div class="ex">They watch TV <b style="color:var(--bl)">five times a week</b>. <button class="sp" onclick="say('They watch TV five times a week')">🔊</button></div></section>
+
+<section class="card" id="e1410"><h2>14.10 True or False?</h2>
+<p class="mu">Read Anna’s week, then answer.</p>
+<table><tr><th>Anna</th><th></th></tr>
+<tr><td>Wakes up</td><td>6am, every day</td></tr>
+<tr><td>Works</td><td>Monday to Friday</td></tr>
+<tr><td>Goes to the gym</td><td>Tuesdays and Fridays</td></tr>
+<tr><td>Plays tennis</td><td>Saturdays, once a week</td></tr>
+<tr><td>Watches TV</td><td>on the weekend</td></tr></table>
+<div id="tf"></div></section>
+
+<section class="card" id="e1411"><h2>14.11 Put the words in order</h2><div class="mu">Tap the words in the right order.</div></section>
+
+<section class="card" id="e1412"><h2>14.12 Say it out loud, filling in the gaps</h2></section>
+
+<section class="card" id="wr"><h2>14.13 Writing: describe your week</h2>
+<p>Write 5 to 8 sentences about <b>your</b> week. Tap words to add them to your text.</p>
+<div class="chips" id="bank"></div>
+<div class="tip" style="margin:0 0 10px"><b>Example:</b> I get up at 6am every day. I go to work from Monday to Friday. I play soccer on Saturdays. I watch TV on the weekend.</div>
+<textarea id="wt" rows="8" placeholder="I get up at … every day. I go to work …"></textarea>
+<ul id="ck"></ul>
+<button class="b" id="wl">🔊 Listen to my text</button><button class="b s" id="wc">Copy</button><button class="b s" id="wx">Clear</button>
+<p class="mu" id="wn"></p></section>
+
+<section class="card"><h2>Checklist</h2>
+<label><input type="checkbox"> Days and prepositions</label><br>
+<label><input type="checkbox"> Days of the week</label><br>
+<label><input type="checkbox"> Talking about my weekly routine</label></section>
+</main>
+<script>
+var $=function(i){return document.getElementById(i)},tot=0,got=0,done={};
+function say(t){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.85;speechSynthesis.speak(u)}catch(e){}}
+function upd(){$('score').textContent='Score: '+got+' / '+tot}
+function cards(id,list,cls){var h='';list.forEach(function(x){h+='<button class="'+cls+(x[3]||'')+'" onclick="say(\''+x[0]+'\')"><b>'+(x[2]||'')+x[0]+'</b><small>'+x[1]+'</small></button>'});$(id).innerHTML=h}
+cards('days',[['Monday','lundi'],['Tuesday','mardi'],['Wednesday','mercredi'],['Thursday','jeudi'],['Friday','vendredi'],['Saturday','samedi','',' we'],['Sunday','dimanche','',' we']],'day');
+cards('acts',[['go to the gym','aller à la salle de sport','🏋️ '],['go swimming','aller nager','🏊 '],['play tennis','jouer au tennis','🎾 '],['play soccer','jouer au football','⚽ '],['read the newspaper','lire le journal','📰 '],['take a bath','prendre un bain','🛁 ']],'fq');
+cards('fqs',[['once a week','une fois par semaine','☑️ '],['twice a week','deux fois par semaine','☑️☑️ '],['three times a week','trois fois par semaine','☑️☑️☑️ '],['every day','tous les jours','📅 ']],'fq');
+
+/* gap exercises: "[]" = blank; a = accepted answers per blank */
+function gaps(id,items,opts,pre){
+ var box=$(id),w=document.createElement('div');
+ items.forEach(function(it,i){
+  var d=document.createElement('div');d.className='ex it';
+  var parts=it.t.split('[]'),h=(it.e?it.e+' ':'')+'<span class="n">'+(i+1)+'.</span> ';
+  parts.forEach(function(p,k){h+=p;if(k<parts.length-1){h+='<select data-k="'+k+'"><option value="">…</option>'+(it.o||opts).map(function(o){return'<option>'+o+'</option>'}).join('')+'</select>'}});
+  h+=' <button class="sp" title="Listen">🔊</button><span class="fb"></span>';
+  d.innerHTML=h;d.querySelector('.sp').onclick=function(){var s=d.cloneNode(true),t=it.t,k=0;it.a.forEach(function(a){t=t.replace('[]',a[0])});say(t.replace(/Mondays?/,'Monday').replace(/\s+/g,' '))};
+  w.appendChild(d);it._d=d});
+ var b=document.createElement('button');b.className='b';b.textContent='Check ✓';
+ var r=document.createElement('button');r.className='b s';r.textContent='Try again';
+ b.onclick=function(){var c=0;items.forEach(function(it){var sel=it._d.querySelectorAll('select'),ok=true,ans=[];
+   sel.forEach(function(s,k){var acc=it.a[k];ans.push(acc[0]);if(acc.indexOf(s.value)<0)ok=false});
+   it._d.className='ex it '+(ok?'ok':'no');it._d.querySelector('.fb').textContent=ok?'':'Answer: '+ans.join(' … ');if(ok)c++});
+   if(done[id]!==undefined)got-=done[id];else tot+=items.length;done[id]=c;got+=c;upd()};
+ r.onclick=function(){items.forEach(function(it){it._d.className='ex it';it._d.querySelector('.fb').textContent='';it._d.querySelectorAll('select').forEach(function(s){s.value=''})})};
+ box.appendChild(w);box.appendChild(b);box.appendChild(r)}
+
+var P=['on','at','from','to','every'];
+gaps('e143',[
+ {t:'Sharon wakes up at 5am [] Mondays. (example: on)',a:[['on']]},
+ {t:'We eat lunch at 3pm [] the weekend.',a:[['on','at']]},
+ {t:'She goes to bed at 1am [] the weekend.',a:[['on','at']]},
+ {t:'I go to work [] Monday [] Wednesday.',a:[['from'],['to']]},
+ {t:'They eat dinner at 9pm [] the weekend.',a:[['on','at']]},
+ {t:'We finish work at 3pm [] Fridays.',a:[['on']]},
+ {t:'I eat breakfast at work [] Mondays.',a:[['on']]}],P);
+var A=['goes to the gym','go swimming','plays soccer','takes a bath','reads the newspaper','plays tennis','read the newspaper','take a bath'];
+var AO=['goes to the gym','go swimming','plays soccer','take a bath','read the newspaper','plays tennis'];
+gaps('e145',[
+ {e:'🏋️',t:'He [] on Tuesdays and Fridays.',a:[['goes to the gym']]},
+ {e:'🏊',t:'They [] on Thursdays.',a:[['go swimming']]},
+ {e:'⚽',t:'He [] on Wednesdays.',a:[['plays soccer']]},
+ {e:'🛁',t:'I [] on the weekend.',a:[['take a bath']]},
+ {e:'📰',t:'You [] on Saturdays.',a:[['read the newspaper']]}],AO);
+gaps('e146',[
+ {t:'I watch TV [] Sundays.',a:[['on']]},
+ {t:'I take a bath [] 7pm every day.',a:[['at']]},
+ {t:'I go to bed [] 10 o’clock [] Sundays.',a:[['at'],['on']]},
+ {t:'I get up [] 8am [] Monday to Friday.',a:[['at'],['from']]}],['on','at','from','to']);
+gaps('e1412',[
+ {t:'We get up [] 7am five times a week.',a:[['at']]},
+ {t:'They go to work [] Monday [] Friday.',a:[['from'],['to']]},
+ {t:'Linda washes her face [] day.',a:[['every']]},
+ {t:'Colin sleeps [] 11pm [] 6am.',a:[['from'],['to']]}],['on','at','from','to','every']);
+
+/* true / false */
+var TF=[['Anna works from Monday to Friday.',1],['Anna goes to the gym twice a week.',1],['Anna plays tennis on Sundays.',0],['Anna wakes up at 8am every day.',0],['Anna watches TV on the weekend.',1]];
+(function(){var h='';TF.forEach(function(q,i){h+='<div class="ex it tf" id="tf'+i+'">'+(i+1)+'. '+q[0]+' <button class="sp" onclick="say(\''+q[0]+'\')">🔊</button><br><button class="b" data-v="1">True</button><button class="b s" data-v="0">False</button><span class="fb"></span></div>'});$('tf').innerHTML=h;
+ TF.forEach(function(q,i){var d=$('tf'+i);d.querySelectorAll('button.b').forEach(function(b){b.onclick=function(){if(d.dataset.d)return;d.dataset.d=1;tot++;var ok=(+b.dataset.v)===q[1];if(ok)got++;d.className='ex it tf '+(ok?'ok':'no');d.querySelector('.fb').textContent=ok?'✓ Correct!':'The answer is '+(q[1]?'True':'False');upd()}})})})();
+
+/* word order */
+var WO=[['I get up at 6am five days a week.',['get up','five days','I','at 6am','a week.']],['They go to bed at 11pm every day.',['every','day.','They','at 11pm','go to bed']],['Sarah plays soccer twice a week.',['plays','soccer','Sarah','twice a week.']],['Jamie washes his clothes once a week.',['once','his clothes','a week.','washes','Jamie']]];
+WO.forEach(function(q,i){var s=document.createElement('div');s.className='ex it';var cur=[],ans=document.createElement('div');ans.className='ans';var ch=document.createElement('div');ch.className='chips';var fb=document.createElement('span');fb.className='fb';var fin=0;
+ q[1].slice().sort(function(){return Math.random()-.5}).forEach(function(w){var c=document.createElement('button');c.className='chip';c.textContent=w;c.onclick=function(){if(c.classList.contains('used')||fin)return;c.classList.add('used');cur.push(w);ans.textContent=cur.join(' ')};ch.appendChild(c)});
+ var ok=document.createElement('button');ok.className='b';ok.textContent='Check ✓';
+ ok.onclick=function(){if(fin||!cur.length)return;fin=1;tot++;var g=cur.join(' ')===q[0];if(g)got++;s.className='ex it '+(g?'ok':'no');fb.textContent=g?'✓ Correct!':'Answer: '+q[0];upd();say(q[0])};
+ var rs=document.createElement('button');rs.className='b s';rs.textContent='Clear';rs.onclick=function(){if(fin)return;cur=[];ans.textContent='';ch.querySelectorAll('.chip').forEach(function(c){c.classList.remove('used')})};
+ s.appendChild(document.createTextNode((i+1)+'.'));s.appendChild(ch);s.appendChild(ans);s.appendChild(ok);s.appendChild(rs);s.appendChild(fb);$('e1411').appendChild(s)});
+/* writing task */
+(function(){var D='(monday|tuesday|wednesday|thursday|friday|saturday|sunday)';
+ var wt=$('wt'),T=[['on + a day (on Mondays)',new RegExp('\\bon '+D+'s?\\b','i')],['from … to … (from Monday to Friday)',/\bfrom\b.+\bto\b/i],['a time with at (at 7am)',/\bat \d{1,2}([:.]\d\d)?\s?(am|pm|o.?clock)?/i],['a frequency phrase (twice a week, every day)',/(once|twice|\w+ times) a week|every day/i],['the weekend',/the weekend/i]];
+ var B=['I','He','She','They','get up','go to work','go to school','go to bed','eat breakfast','eat lunch','eat dinner','watch TV','play soccer','go to the gym','go swimming','read the newspaper','take a bath','on','at','from','to','every day','once a week','twice a week','three times a week','the weekend','Monday','Tuesday','Wednesday','Thursday','Friday','Saturdays','Sundays','7am','6pm','.'];
+ var h='';B.forEach(function(w){h+='<button class="chip">'+w+'</button>'});$('bank').innerHTML=h;
+ $('bank').onclick=function(e){var b=e.target;if(b.className!=='chip')return;var w=b.textContent,v=wt.value;wt.value=(w==='.'?v.replace(/\s+$/,''):v+(v&&!/\s$/.test(v)?' ':''))+w+(w==='.'?' ':' ');wt.focus();chk()};
+ function chk(){var v=wt.value,n=v.split(/[.!?]+/).filter(function(s){return s.trim().split(/\s+/).length>2}).length,l='';
+  T.forEach(function(t){l+='<li class="'+(t[1].test(v)?'y':'')+'">'+(t[1].test(v)?'✅ ':'⬜ ')+t[0]+'</li>'});
+  l+='<li class="'+(n>=5?'y':'')+'">'+(n>=5?'✅ ':'⬜ ')+'at least 5 sentences ('+n+' so far)</li>';$('ck').innerHTML=l;
+  var w=v.trim()?v.trim().split(/\s+/).length:0;$('wn').textContent=w+' words'+(n>=5&&T.every(function(t){return t[1].test(v)})?' · 🎉 Great job! Read your text aloud to a friend.':'')}
+ wt.oninput=chk;chk();
+ $('wl').onclick=function(){if(wt.value.trim())say(wt.value)};
+ $('wx').onclick=function(){wt.value='';chk()};
+ $('wc').onclick=function(){try{wt.select();document.execCommand('copy');$('wn').textContent='Copied ✓'}catch(e){}};
+})();
+</script></body></html>
